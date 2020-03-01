@@ -15,27 +15,16 @@ class Form extends React.Component {
 
     handleClick(){
         this.state.store.push(this.state.word);
+        this.props.todo(this.state.store);
         this.setState({store:this.state.store});
     }
 
     render() {
-        const todoArr = this.state.store;
-        let todo;
-        console.log(this.state);
-        if (todoArr.length > 0) {
-          todo = this.state.store.map((todo, index) => {
-            return <li key={index}>{todo}</li>;
-          });
-        }
 
         return (
         <div className="item">
             <input onChange={(event)=>{this.changeHandler(event);}}/>
-            <button onClick={(event)=>{this.handleClick()}}>click me!</button>
-            <br/>
-            <ul>
-            {todo}
-            </ul>
+            <button onClick={()=>{this.handleClick()}}>Todo</button>
         </div>
         );
     }
