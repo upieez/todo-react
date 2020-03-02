@@ -21,11 +21,15 @@ class App extends React.Component {
         const callBack = (item)=>{
         this.setItem(item)
         }
-        console.log(this.state.store)
+        console.log(this.state.store.length)
         return (
         <div className="item">
             <Form todo={callBack}/>
+            <div>
+                <ul>
             <ItemList todo={this.state.store}/>
+                </ul>
+            </div>
         </div>
         );
     }
